@@ -82,18 +82,21 @@ async function creatObjectTabel() {
 let Registrationform = ''
 function userRegistration() {
     Registrationform = `<form id ='registrstyle'>
-    <label for="Fname"> First name <input id='firstName' type="text"></label>
+    <label for="Fname"> First name <input id='firstName' type="text" required></label>
     <br>
-    <label for="Lname"> Last name <input type="text" ></label>
+    <label for="Lname"> Last name <input type="text" id='lastName' required></label>
     <br>
-    <label for="id"> ID <input type="text"></label>
+    <label for="id"> ID <input type="text" required></label>
     <br>
-    <label  for="Email" id='userEmail' onchange="email_validation()"> Email address <input type="text" id='mainEmail'></label>
+    <label  for="Email"  id='userEmail' onchange="email_validation()"> Email address <input type="email"  id='mainEmail' required></label>
     <br>
-    <label  for="conformEmail"> conform Email address <input type="text" id='conformEmail'></label>
+    <label  for="conformEmail"> conform Email address <input type="email" id='conformEmail' required></label>
     <br>
-    <label for="age"> age <input type="number"></label>
-    <button type='submiteCheck' onclick='formButton()'  id='formButton2'> registr </button> `
+    <label for="age"> age <input type="number" required></label>
+    <button type='submiteCheck' onclick='formButton()'  id='formButton2'> registr </button> 
+    <h3 id='notify_user' class="bg-primary text-light"></h3>
+    `
+    
 
     Registrationform += `</form>`
     mainDive.innerHTML = Registrationform
@@ -103,11 +106,17 @@ function formButton() {
     let firstemail = document.getElementById('mainEmail').value;
     let secoundemail = document.getElementById('conformEmail').value
     if (firstemail === secoundemail) {
-        alert('welcome new user');
+       document.getElementById("notify_user").innerHTML = `welcom ${firstName.value} ${lastName.value}`
+       setTimeout( () =>{
+        document.getElementById("notify_user").innerHTML ='' 
+    },10000)
 
     }
     else {
-        alert('your email address are not the same');
+        document.getElementById("notify_user").innerHTML = `the emails address are not the same`
+        setTimeout( () =>{
+            document.getElementById("notify_user").innerHTML ='' 
+        },5000)
     }
 }
 
