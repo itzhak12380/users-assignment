@@ -26,7 +26,7 @@ async function presentObjects() {
     for (const fetchedObjects of arrayFetch) {
         HTML = ''
         document.getElementById(`${fetchedObjects['index']}`).addEventListener('click',() =>{
-            HTML += `<div  class ='usersInfo' id= '${fetchedObjects['index']}' >  `
+            HTML += `<div  class ='usersInfo' id= '${fetchedObjects['index']}' style='width:700px; height:500px;' >  `
         for (const keys in fetchedObjects) {
             if (fetchedObjects[keys] === fetchedObjects["name"]) {
                 HTML += `<h1>`
@@ -36,7 +36,7 @@ async function presentObjects() {
                 HTML += `</h1>`
             }
             if (fetchedObjects[keys] === fetchedObjects['picture']) {
-                HTML += `<img src="https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500>">`
+                HTML += `<img src="https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500>" style='width:200px; height:150px; border-radius: 100px;'>`
             }
             if (fetchedObjects[keys] != fetchedObjects['index'] && fetchedObjects[keys] != fetchedObjects['_id'] && fetchedObjects[keys] != fetchedObjects['name'] && fetchedObjects[keys] != fetchedObjects['picture']) {
                 HTML += `<h3>  ${fetchedObjects[keys]}  </h3>  `
