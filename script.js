@@ -19,27 +19,27 @@ async function presentObjects() {
                 HTML += `<h5>  ${fetchedObjects[keys]}  </h5>  `
             }
         }
-        HTML += '</div> '
+        HTML += '</div>  '
     }
     mainDive.innerHTML += HTML
 
     for (const fetchedObjects of arrayFetch) {
         HTML = ''
         document.getElementById(`${fetchedObjects['index']}`).addEventListener('click',() =>{
-            HTML += `<div  class ='usersInfo' id= '${fetchedObjects['index']}' style='width:700px; height:500px;' >  `
+            HTML += `<div  class='userInfo' id= '${fetchedObjects['index']}' style='width:700px; height:500px;' >  `
         for (const keys in fetchedObjects) {
             if (fetchedObjects[keys] === fetchedObjects["name"]) {
-                HTML += `<h1>`
+                HTML += `<h1 class='onlyusername'>`
                 for (const nameKeys in fetchedObjects["name"]) {
                     HTML += ` ${fetchedObjects["name"][nameKeys]} `
                 }
                 HTML += `</h1>`
             }
             if (fetchedObjects[keys] === fetchedObjects['picture']) {
-                HTML += `<img src="https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500>" style='width:200px; height:150px; border-radius: 100px;'>`
+                HTML += `<img src="https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500 class='onlyusername'>" style='width:200px; height:150px; border-radius: 100px;'>`
             }
             if (fetchedObjects[keys] != fetchedObjects['index'] && fetchedObjects[keys] != fetchedObjects['_id'] && fetchedObjects[keys] != fetchedObjects['name'] && fetchedObjects[keys] != fetchedObjects['picture']) {
-                HTML += `<h3>  ${fetchedObjects[keys]}  </h3>  `
+                HTML += `<h3 class='onlyusername'>  ${fetchedObjects[keys]}  </h3>  `
             }
         }
         HTML += '</div> '
@@ -56,7 +56,7 @@ async function creatObjectTabel() {
     let fetchusers = await fetch('https://next.json-generator.com/api/json/get/NJ-UoW2Xq')
     let usersObjcets = await fetchusers.json()
     mytabele = ''
-    mytabele += '<table> <tr> <th> picture </th> <th> age </th> <th> name </th> <th> email </th> <th> phone number </th> </tr>'
+    mytabele += '<table > <tr> <th> picture </th> <th> age </th> <th> name </th> <th> email </th> <th> phone number </th> </tr>'
     for (const ichObject of usersObjcets) {
         mytabele += `<tr>`
         for (const keys in ichObject) {
