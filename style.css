@@ -74,6 +74,9 @@ img{
 h2{
     color: #007b5e;
 }
+h1{
+  color: #007b5e;
+}
 table,td,th{
     border: solid 2px black;
     width: fit-content;

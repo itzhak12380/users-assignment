@@ -87,8 +87,7 @@ presentObjects()
 
 let mytabele = ''
 async function creatObjectTabel() {
-    let fetchusers = await fetch('https://next.json-generator.com/api/json/get/NJ-UoW2Xq')
-    let usersObjcets = await fetchusers.json()
+    let usersObjcets = await creatNewArray()
     mytabele = ''
     mytabele += '<table > <tr> <th> picture </th> <th> age </th> <th> name </th> <th> email </th> <th> phone number </th> </tr>'
     for (const ichObject of usersObjcets) {
