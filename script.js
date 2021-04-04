@@ -1,7 +1,41 @@
+class usersclass {
+    constructor(){
+        this.picture = undefined;
+        this.index = undefined;
+        this.name = {
+            frist: undefined,
+            last: undefined,
+        },
+        this.age = undefined;
+        this.phone = undefined;
+        this.email = undefined;
+    }
+}
+
+
+const API = 'https://next.json-generator.com/api/json/get/NJ-UoW2Xq'
+async function creatNewArray(){
+    let myfetch = await fetch(`${API}`,{})
+    let myjson = await myfetch.json()
+    let ArrayOfUsers = []
+    for (const jsonusers of myjson) {
+        let users = new usersclass();
+        users.index = jsonusers.index;
+        users.age = jsonusers.age;
+        users.picture = jsonusers.picture;
+        users.phone = jsonusers.phone;
+        users.email = jsonusers.email;
+        users.name = jsonusers.name;
+        ArrayOfUsers.push(users)
+    }
+    return ArrayOfUsers
+
+}
+
+
 let HTML = ''
 async function presentObjects() {
-    let serverFetch = await fetch('https://next.json-generator.com/api/json/get/NJ-UoW2Xq');
-    let arrayFetch = await serverFetch.json()
+    let arrayFetch = await creatNewArray()
     for (const fetchedObjects of arrayFetch) {
         HTML += `<div  class ='usersInfo card' id= '${fetchedObjects['index']}' >  `
         for (const keys in fetchedObjects) {
